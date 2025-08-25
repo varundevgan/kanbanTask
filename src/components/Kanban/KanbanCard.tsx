@@ -1,6 +1,8 @@
-import React, { useEffect, useRef, useState, type FC } from "react";
 import type { cardsProps } from "../../Types/KanbanTypes";
 import { useDraggable } from "@dnd-kit/core";
+import EditCardPopup from "../Features/EditCardPopup";
+import { MdVerified } from "react-icons/md";
+import { useState } from "react";
 
 type cardProps = {
   card: cardsProps;
@@ -24,21 +26,23 @@ const KanbanCard = ({ card }: cardProps) => {
     id: card.id,
   });
 
+  const [verified, setVerified] = useState(false);
+
   const style = transform
     ? {
         transform: `translate(${transform.x}px, ${transform.y}px)`,
       }
     : undefined;
 
-
   return (
+    <div className="relative">
       <div
         ref={setNodeRef}
         {...listeners}
         {...attributes}
         style={style}
         className="rounded-lg p-2 mt-4 border border-gray-300 shadow-sm cursor-pointer"
-        >
+      >
         <div className="flex w-full justify-between">
           <div className="flex items-center gap-2">
             <p className="text-gray-500 text-xs">#8793</p>
@@ -70,9 +74,25 @@ const KanbanCard = ({ card }: cardProps) => {
             </span>
             <span className="font-[500]">{card.rating}</span>
           </div>
-          <div></div>
         </div>
       </div>
+      <div className="absolute top-1.5 right-8">
+        <EditCardPopup card={card} />
+      </div>
+      <div
+        onClick={() => setVerified((prev) => !prev)}
+        className="absolute bottom-2.5 right-4 cursor-pointer"
+      >
+        {verified ? (
+          <div className="relative">
+            <MdVerified className="text-blue-500 w-5 h-6" />
+            <p className="absolute -left-10 bottom-6 truncate bg-[#0f2756] text-white px-2 p-1 rounded-lg text-sm">Verified by Sam</p>
+          </div>
+        ) : (
+          <MdVerified className="text-gray-300 w-5 h-6" />
+        )}
+      </div>
+    </div>
   );
 };
 

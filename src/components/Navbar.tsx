@@ -1,4 +1,3 @@
-import React, { type JSX } from 'react'
 import Button from './Features/Button'
 import Input from './Features/Input'
 import LayoutButton from './DashboardLayout/LayoutButton'

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import KanbanColumns from '../../components/Kanban/KanbanColumns'
 import type {cardsProps} from '../../Types/KanbanTypes'
 import { DndContext, type DragEndEvent } from '@dnd-kit/core'
@@ -36,7 +36,7 @@ const Kanban = () => {
        <DndContext onDragEnd={handleDragEnd}>
             {
             kanbanColums.map((column)=>(
-                <KanbanColumns key={column.id} column={column} cards={tasks} setTasks={setTasks} />
+                <KanbanColumns key={column.id} column={column} cards={tasks} />
             ))
         }
        </DndContext>

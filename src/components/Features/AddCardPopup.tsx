@@ -15,7 +15,7 @@ export default function TaskForm({ onSubmit }: { onSubmit: (data: any) => void }
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value, type } = e.target;
-    const target = e.target as HTMLInputElement; // helps for checkbox & number
+    const target = e.target as HTMLInputElement; 
     
     setFormData((prev) => ({
       ...prev,
@@ -38,7 +38,7 @@ export default function TaskForm({ onSubmit }: { onSubmit: (data: any) => void }
   onSubmit={handleSubmit}
   className="bg-white shadow-lg rounded-2xl p-6 space-y-4 w-full max-w-md mx-auto"
 >
-  <h2 className="text-xl font-semibold">Create / Update Task</h2>
+  <h2 className="text-xl font-semibold">Create Task</h2>
 
   {/* Title */}
   <div>
