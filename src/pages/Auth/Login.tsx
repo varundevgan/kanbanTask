@@ -38,7 +38,7 @@ const Signup = () => {
     e.preventDefault();
     console.log("clicked");
     setShowSignup(!showSignup);
-    navigate("/login");
+    navigate("/");
   }
 
   window.addEventListener("resize", () => setWidth(window.innerWidth));
@@ -63,7 +63,7 @@ const Signup = () => {
           opacity: 1,
         });
       } else {
-        navigate("/login", { replace: true });
+        navigate("/", { replace: true });
 
         gsap.to("#bigBalls", {
           x: "0%",
@@ -112,7 +112,7 @@ const Signup = () => {
           opacity: 1,
         });
       } else {
-        navigate("/login", { replace: true });
+        navigate("/", { replace: true });
 
         gsap.to("#bigBalls", {
           y: "-10%",

@@ -11,7 +11,7 @@ import type { JSX } from "react";
 
 function PrivateRoute({ children }: { children: JSX.Element }) {
   const isAuth = !!localStorage.getItem("token");
-  return isAuth ? children : <Navigate to="/login" replace />;
+  return isAuth ? children : <Navigate to="/" replace />;
 }
 
 function App() {
